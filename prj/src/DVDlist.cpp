@@ -7,13 +7,18 @@
 #include "../inc/DVDlist.hh"
 
 void DVDlist::Add(const DVDdisk newDisk) {
-  // TO DO
+  Collection.push_back(newDisk);
 }
 
 int DVDlist::GiveNumberOfDVD() const {
   return Collection.size();
 }
 
-int DVDlist::GiveTotalFreeSpace() const {
-  // TO DO
+int DVDlist::GiveTotalFreeSpace() {
+  std::list<DVDdisk>::iterator it;
+  int actualFreeSpace = 0;
+  for(it = Collection.begin(); it != Collection.end(); ++it) 
+    actualFreeSpace += (*it).GiveFreeSpace();
+  
+  return actualFreeSpace;
 }

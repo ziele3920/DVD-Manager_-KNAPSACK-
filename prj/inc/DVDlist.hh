@@ -27,9 +27,33 @@ class DVDlist {
 
 public:
 
+  /*!
+   * \brief Dodawanie płyty
+   *
+   * Dodaje płytę DVD do kolekcji.
+   *
+   * \param[in] newDisk - dodawana płyta
+   */
   void Add(const DVDdisk newDisk);
+
+  /*!
+   * \brief Ilość płyt
+   *
+   * Sprawdza ilość płyt w kolekcji.
+   *
+   * \retval - ilość płyt w kolekcji
+   */
   int GiveNumberOfDVD() const;
-  int GiveTotalFreeSpace() const;
+
+  /*!
+   * \brief Wolne miejsce
+   *
+   * Sprawdza ogólną ilość nie wykorzystanego miejsca na płytach 
+   * znajdujących się w kolekcji
+   *
+   * retval - zwraca ilość niewykorzystaego miejsca w KB.
+   */
+  int GiveTotalFreeSpace();
 
 };
 
