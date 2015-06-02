@@ -12,7 +12,7 @@ int main() {
   Statistics stat; 
   std::string fileName = "dane.dat";
   DataGen DG;
-  DG.Gen(fileName, 1*GB, 1*TB);
+  DG.Gen(fileName, 4680*MB, 1*TB);
   K._WczytajPliki(fileName);
   K._PrzydzielPliki();
   DVDlist L = K._ZwrocListePlyt();

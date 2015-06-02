@@ -38,25 +38,29 @@ void Knapsack::_PrzydzielPliki()
   while(!ListaPlikow.empty())
     {
       DVDdisk Temp(4700000);
-      while((Temp.GiveFreeSpace() > 0 || !ListaPlikow.empty()))
+      while((Temp.GiveFreeSpace() > 0))
 	{ 
-	  if(ListaPlikow.back() + Temp.AlreadyAdded() < Temp.GiveCapacity())
+	  if(!ListaPlikow.empty())
 	    {
-	      if(Temp.AddFile(ListaPlikow.back()))
+	      if(ListaPlikow.back() + Temp.AlreadyAdded() < Temp.GiveCapacity())
 		{
-		  ListaPlikow.pop_back();
+		  if(Temp.AddFile(ListaPlikow.back()))
+		    {
+		      ListaPlikow.pop_back();
+		    }
+		  else
+		    {
+		      std::cerr <<"Bład! Nie udalo sie dodac pliku do plyty!"
+				<< std::endl; exit(1);
+		    }
 		}
 	      else
 		{
-		  std::cerr <<"Bład! Nie udalo sie dodac pliku do plyty!"
-			    << std::endl; exit(1);
+		  ListaPlyt.Add(Temp);
+		  break;
 		}
 	    }
-	  else
-	    {
-	      ListaPlyt.Add(Temp);
-	      break;
-	    }
+	  else break;
 	}
     }
 }
