@@ -1,5 +1,5 @@
 #include "../inc/DataGen.hh"
-#include "../inc/DVDlist.hh"
+#include "../inc/Statistics.hh"
 
 // Jedostka podstawowa KB !!
 const int MB = 1000;
@@ -18,7 +18,9 @@ int main() {
   std::cout << L.GiveNumberOfDVD() << std::endl;
   std::cout << L.GiveTotalFreeSpace() << std::endl;
 
-
+  Statistics stat;
+  stat.MakeStat(&L);
+  stat.ShowStat();
 
   // DVDdisk DVD(4700 * MB);
   // std::cout << DVD.GiveCapacity() << std::endl;
