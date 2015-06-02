@@ -1,9 +1,12 @@
 #include "../inc/Knapsack.hh"
 //****************************************************************************************
-Knapsack::Knapsack()
-{
+/*!
+ *\file Knapsack
+ *
+ * Zawiera definicje klasy Knapsack
+ */
+//****************************************************************************************
 
-}
 //****************************************************************************************
 DVDlist Knapsack:: _ZwrocListePlyt()const
 {
@@ -34,6 +37,7 @@ void Knapsack::_WczytajPliki(std::string NazwaPliku)
 //****************************************************************************************
 void Knapsack::_PrzydzielPliki()
 {
+
   ListaPlikow.sort(std::greater<int>());
   std::list<int>::iterator it;
 
@@ -41,12 +45,11 @@ void Knapsack::_PrzydzielPliki()
       DVDdisk actualDisk(4700000);
       for(it = ListaPlikow.begin(); it != ListaPlikow.end(); ++it) {
           if(actualDisk.GiveFreeSpace() == 0) break;
-          if(actualDisk.AddFile((*it)));
+          if(actualDisk.AddFile((*it)))
              it = ListaPlikow.erase(it);
       }
       ListaPlyt.Add(actualDisk);
   }
-
 
 }
 //****************************************************************************************
