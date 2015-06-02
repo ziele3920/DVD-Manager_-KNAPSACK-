@@ -22,7 +22,7 @@ class DVDdisk {
    * 
    * Pole przechowuje wartość pojemnosci płyty wyrażoną w KB;
    */
-  int Capacity;
+  const int Capacity;
 
   /*!
    * \brief Wolne miejsce
@@ -66,7 +66,7 @@ public:
    *
    * \retval - zwraca pojemność płyty wyrażoną w KB.
    */
-  int GiveCapacity() const;
+  const int GiveCapacity() const;
 
   /*!
    * \brief Dodaje pik
@@ -77,7 +77,7 @@ public:
    * \retval true/false odpowienio przy powodzeniu dodawania bądź niepowodzeniu.
    */
   bool AddFile(const int size);
-
+  const int AlreadyAdded()const;
 };
 
 

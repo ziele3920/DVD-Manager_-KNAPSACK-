@@ -3,9 +3,9 @@
  *
  * Plik zawiera definicję metod klasy DVDlist.
  */
-
+#include <iostream>
 #include "../inc/DVDlist.hh"
-
+using namespace std;
 void DVDlist::Add(const DVDdisk newDisk) {
   Collection.push_back(newDisk);
 }

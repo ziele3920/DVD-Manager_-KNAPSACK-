@@ -6,16 +6,16 @@
 
 #include "../inc/DVDdisk.hh"
 
-DVDdisk::DVDdisk(const int capacity) {
-  Capacity = capacity;
-  FreeSpace = Capacity;
-}
+DVDdisk::DVDdisk(const int capacity) 
+  :Capacity(capacity),FreeSpace(Capacity)
+{}
+
 
 int DVDdisk::GiveFreeSpace() const {
   return FreeSpace;
 }
 
-int DVDdisk::GiveCapacity() const {
+const int DVDdisk::GiveCapacity() const {
   return Capacity;
 }
 
@@ -26,4 +26,8 @@ bool DVDdisk::AddFile(const int size) {
   FreeSpace = FreeSpace - size;
   Files.push(size);
   return true;
+}
+const int DVDdisk::AlreadyAdded()const
+{
+  return(Capacity - FreeSpace);
 }
