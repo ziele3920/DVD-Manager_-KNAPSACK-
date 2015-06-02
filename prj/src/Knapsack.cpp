@@ -34,35 +34,20 @@ void Knapsack::_WczytajPliki(std::string NazwaPliku)
 //****************************************************************************************
 void Knapsack::_PrzydzielPliki()
 {
-  ListaPlikow.sort();
-  while(!ListaPlikow.empty())
-    {
-      DVDdisk Temp(4700000);
-      while((Temp.GiveFreeSpace() > 0))
-	{ 
-	  if(!ListaPlikow.empty())
-	    {
-	      if(ListaPlikow.back() + Temp.AlreadyAdded() < Temp.GiveCapacity())
-		{
-		  if(Temp.AddFile(ListaPlikow.back()))
-		    {
-		      ListaPlikow.pop_back();
-		    }
-		  else
-		    {
-		      std::cerr <<"Bład! Nie udalo sie dodac pliku do plyty!"
-				<< std::endl; exit(1);
-		    }
-		}
-	      else
-		{
-		  ListaPlyt.Add(Temp);
-		  break;
-		}
-	    }
-	  else break;
-	}
-    }
+  ListaPlikow.sort(std::greater<int>());
+  std::list<int>::iterator it;
+
+  while(!ListaPlikow.empty()) {
+      DVDdisk actualDisk(4700000);
+      for(it = ListaPlikow.begin(); it != ListaPlikow.end(); ++it) {
+          if(actualDisk.GiveFreeSpace() == 0) break;
+          if(actualDisk.AddFile((*it)));
+             it = ListaPlikow.erase(it);
+      }
+      ListaPlyt.Add(actualDisk);
+  }
+
+
 }
 //****************************************************************************************
 void Knapsack::_ZawartoscListyPlikow()
