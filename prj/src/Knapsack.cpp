@@ -1,7 +1,7 @@
 #include "../inc/Knapsack.hh"
 //****************************************************************************************
 /*!
- *\file Knapsack
+ *\brief Knapsack
  *
  * Zawiera definicje klasy Knapsack
  */

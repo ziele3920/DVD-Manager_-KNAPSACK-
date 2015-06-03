@@ -32,7 +32,7 @@ class DVDdisk {
   int FreeSpace;
 
   /*!
-   * \Brief Pliki na płycie
+   * \brief Pliki na płycie
    *
    * Lista plików, które znajdują się na płycie, które 
    * są reprezentowane przez ich wielkość wyrażona w KB.

@@ -39,6 +39,7 @@ public:
    *
    * Metoda generuje do pliku bazę danych symulującą rozmiary plików
    * przechowywanych na dysku o łącznej pojemnośći w przybliżeniu równą sum.
+   * Dziesiąta część dysku jest wypełniana danymi poniżej 10MB.
    *
    * \param[in] fileName - nazwa pliku, do którego zostaną zapisane dane
    * \param[in] upperRange - górny zakres losowanych wielkości

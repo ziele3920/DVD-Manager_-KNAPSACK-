@@ -30,3 +30,12 @@
 # additional files
 *~
 *.dat
+*.tex
+*.sty
+*.aux
+*.idx
+*.ilg
+*.ind
+*.log
+*.toc
+/doc/latex/Makefile

@@ -7,7 +7,7 @@
 #include "../inc/DVDlist.hh"
 //**************************************************************************
 /*!
- *\file Definicja Klasy Knapsack
+ *\brief Definicja Klasy Knapsack
  *
  * Plik zawiera definicje klasy Knapsack, wraz z deklaracjami jej metod
  */

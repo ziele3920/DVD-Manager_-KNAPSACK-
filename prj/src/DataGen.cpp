@@ -17,8 +17,15 @@ void DataGen::OpenOutputFile(const char *fileName, std::fstream &file) {
 void DataGen::Gen(std::string fileName, const unsigned int upperRange, const unsigned int sum) {
   std::fstream file;
   unsigned int currentData, currentSum = 0;
+  unsigned int smallData = 10000, smallDiskPart = 10;
   srand(time(NULL));
   this -> OpenOutputFile(fileName.c_str(), file);
+
+  while(currentSum < sum/smallDiskPart) {
+    currentData = (rand()%smallData+1);
+    file << currentData << " ";
+    currentSum += currentData;
+  }
 
   while(currentSum < sum) {
     currentData = (rand()%upperRange+1);
