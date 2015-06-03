@@ -27,7 +27,4 @@ bool DVDdisk::AddFile(const int size) {
   Files.push(size);
   return true;
 }
-const int DVDdisk::AlreadyAdded()const
-{
-  return(Capacity - FreeSpace);
-}
+

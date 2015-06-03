@@ -78,14 +78,6 @@ public:
    */
   bool AddFile(const int size);
 
-  /*!
-   *\brief Ile zajetego miejsca
-   *
-   * Sprawdza ile dotychczas zostalo zapisanych danych na plycie
-   *
-   *\return - Zwraca ilosc zajetego miejsca na plycie w KB
-   */
-  const int AlreadyAdded()const;
 };
 
 
