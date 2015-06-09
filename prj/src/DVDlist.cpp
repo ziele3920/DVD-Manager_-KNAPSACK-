@@ -4,6 +4,7 @@
  * Plik zawiera definicję metod klasy DVDlist.
  */
 #include <iostream>
+#include <fstream>
 #include "../inc/DVDlist.hh"
 using namespace std;
 void DVDlist::Add(const DVDdisk newDisk) {
@@ -55,3 +56,51 @@ int DVDlist::GiveTotalCapacity() {
 
     return actualCapacity;
 }
+void DVDlist::ZapiszProcentZapisania()
+{
+  std::list<int> WolneMiejsce;
+  std::list<int> Ilosc;
+  std::fstream PlikWy;
+  std::list<int>::iterator it;
+  std::list<DVDdisk>::iterator iter;
+  int i = 0;
+
+  for(iter = Collection.begin(); iter != Collection.end(); ++iter)
+    {
+      WolneMiejsce.push_back((*iter).GiveFreeSpace());
+    }
+
+  WolneMiejsce.sort();
+  it = WolneMiejsce.begin();
+
+  while(it != WolneMiejsce.end())
+    {
+      int Temp = (*it);
+      Ilosc.push_back(Temp);
+      while(Temp == *it)
+	{i++;++it;}
+      
+      Ilosc.push_back(i);
+      i = 0;
+    }
+    
+  PlikWy.open("data.dat",std::ios::out|std::ios::trunc);
+  {
+    if(PlikWy.good())
+      {
+	i = 0;
+	for(it = Ilosc.begin(); it != Ilosc.end();++it)
+	  {
+	    PlikWy << *it <<  (i%2 ? "\n": " ");
+	    i++;
+	  }
+	PlikWy.close();
+      }
+    else
+      {
+	std::cerr << "Blad!Nie udalo sie utorzyc pliku!" << std::endl;
+      }
+  }
+}
+    
+

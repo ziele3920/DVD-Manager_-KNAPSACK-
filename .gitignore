@@ -38,4 +38,5 @@
 *.ind
 *.log
 *.toc
+*.png
 /doc/latex/Makefile

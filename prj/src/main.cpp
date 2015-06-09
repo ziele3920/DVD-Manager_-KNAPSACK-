@@ -15,8 +15,10 @@ int main() {
   DG.Gen(fileName, 4680*MB, 1*TB);
   K._WczytajPliki(fileName);
   K._PrzydzielPliki();
+  K._ZapiszProcentZapisania();
   DVDlist L = K._ZwrocListePlyt();
   stat.MakeStat(&L);
   stat.ShowStat();
+  
   return 0;
 }

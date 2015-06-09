@@ -75,3 +75,7 @@ void Knapsack::_ZawartoscListyPlikow()
     }
 }
 //****************************************************************************************
+void Knapsack::_ZapiszProcentZapisania()
+{
+  ListaPlyt.ZapiszProcentZapisania();
+}

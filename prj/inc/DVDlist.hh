@@ -83,7 +83,7 @@ public:
    * \return Zwraca łączną pojemność płyt wyrażoną w KB.
    */
   int GiveTotalCapacity();
-
+  void ZapiszProcentZapisania();
 };
 
 #endif
