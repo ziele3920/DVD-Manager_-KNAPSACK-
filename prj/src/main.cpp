@@ -22,7 +22,7 @@ int main() {
   stat.ShowStat();
 
   system("gnuplot histogram.gnu");
-  system("eog plot.png");
+  system("eog plot.png &");
   
   return 0;
 }
