@@ -1,6 +1,7 @@
 #include "../inc/DataGen.hh"
 #include "../inc/Statistics.hh"
 #include "../inc/Knapsack.hh"
+#include <stdlib.h>
 // Jedostka podstawowa KB !!
 const int MB = 1000;
 const int GB = 1000000;
@@ -19,6 +20,9 @@ int main() {
   DVDlist L = K._ZwrocListePlyt();
   stat.MakeStat(&L);
   stat.ShowStat();
+
+  system("gnuplot histogram.gnu");
+  system("eog plot.png");
   
   return 0;
 }
