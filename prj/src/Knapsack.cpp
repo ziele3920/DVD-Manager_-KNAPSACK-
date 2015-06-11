@@ -40,27 +40,19 @@ void Knapsack::_PrzydzielPliki()
 
   ListaPlikow.sort(std::greater<int>());
   std::list<int>::iterator it;
-  bool missBegin = false;
 
   while(!ListaPlikow.empty()) {
-      DVDdisk actualDisk(4700000);
-      for(it = ListaPlikow.begin(); it != ListaPlikow.end(); ++it) {
-          if(missBegin) {
-              --it;
-              missBegin = false;
-          }
-          if(actualDisk.GiveFreeSpace() == 0) break;
-          if(actualDisk.AddFile((*it))) {
-             it = ListaPlikow.erase(it);
-             if(it == (--ListaPlikow.end()))
-                 --it;
-             else if(it == ListaPlikow.begin())
-                 missBegin = true;
-          }
+    DVDdisk actualDisk(4700000);
+    for(it = ListaPlikow.begin(); it != ListaPlikow.end(); ++it) {
+      
+      if(actualDisk.GiveFreeSpace() == 0) break;
+      if(actualDisk.AddFile((*it))) {
+	it = ListaPlikow.erase(it);
+	--it;
       }
-      ListaPlyt.Add(actualDisk);
+    }
+    ListaPlyt.Add(actualDisk);
   }
-
 }
 //****************************************************************************************
 void Knapsack::_ZawartoscListyPlikow()
